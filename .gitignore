@@ -1,0 +1,29 @@
+# --- Secretos y Configuración Local ---
+.env
+dbt/profiles.yml
+dbt/.user.yml
+
+# --- Python ---
+**/__pycache__/
+*.py[cod]
+*$py.class
+
+# --- dbt ---
+# Ignoramos las carpetas que dbt genera automáticamente al correr
+dbt/target/
+dbt/dbt_packages/
+dbt/logs/
+
+# --- Airflow ---
+# Ignoramos carpetas de logs y plugins locales si no quieres compartirlos
+logs/
+plugins/
+airflow.cfg
+airflow.db
+standalone_admin_password.txt
+
+# --- Docker & OS ---
+.DS_Store
+postgres_data/
+pgadmin_data/
+.vscode/
