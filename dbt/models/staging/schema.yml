@@ -1,0 +1,183 @@
+version: 2
+
+models:
+  - name: stg_categories
+    description: "Categories clean"
+    columns:
+      - name: category_id
+        tests:
+          - not_null
+          - unique
+      - name: category_name
+        tests:
+          - not_null
+          - unique
+      - name: description
+        tests:
+          - not_null
+  
+  - name: stg_customers
+    description: "Customers clean"
+    columns:
+      - name: customer_id
+        tests:
+          - not_null
+          - unique
+      - name: company_name
+        tests:
+          - not_null
+      - name: contact_name
+        tests:
+          - not_null
+      - name: contact_title
+        tests:
+          - not_null
+      - name: address
+        tests:
+          - not_null
+      - name: city
+        tests:
+          - not_null
+      - name: country
+        tests:
+          - not_null
+      - name: phone
+        tests:
+          - not_null
+
+  - name: stg_employees
+    description: "Employees clean"
+    columns:
+      - name: employee_id
+        tests:
+          - not_null
+          - unique
+      - name: last_name
+        tests:
+          - not_null
+      - name: first_name
+        tests:
+          - not_null
+      - name: title
+        tests:
+          - not_null
+      - name: title_of_courtesy
+        tests:
+          - not_null
+      - name: birth_date
+        tests:
+          - not_null
+      - name: hire_date
+        tests:
+          - not_null
+      - name: address
+        tests:
+          - not_null
+      - name: city
+        tests:
+          - not_null
+      - name: postal_code
+        tests:
+          - not_null
+      - name: country
+        tests:
+          - not_null
+      - name: home_phone
+        tests: 
+          - not_null
+      - name: notes
+        tests:
+          - not_null
+
+  - name: stg_order_details
+    description: "Order_details clean"
+    columns:
+      - name: order_id
+        tests:
+          - not_null
+      - name: product_id
+        tests:
+          - not_null
+      - name: unit_price
+        tests:
+          - not_null
+      - name: quantity
+        tests:
+          - not_null
+      - name: discount
+        tests:
+          - not_null
+
+  - name: stg_orders
+    description: "Orders clean"
+    columns:
+      - name: order_id
+        tests: 
+          - not_null
+          - unique
+      - name: customer_id
+        tests: 
+          - not_null
+      - name: employee_id
+        tests: 
+          - not_null
+      - name: order_date
+        tests: 
+          - not_null
+      - name: required_date
+        tests: 
+          - not_null
+      - name: ship_via
+        tests: 
+          - not_null
+      - name: freight
+        tests: 
+          - not_null
+      - name: ship_name
+        tests: 
+          - not_null
+      - name: ship_address
+        tests: 
+          - not_null
+      - name: ship_city
+        tests: 
+          - not_null
+      - name: ship_country
+        tests: 
+          - not_null
+
+  - name: stg_products
+    description: "Products clean"
+    columns:
+      - name: product_id
+        tests:
+          - not_null
+          - unique
+      - name: product_name
+        tests:
+          - not_null
+      - name: supplier_id
+        tests:
+          - not_null
+      - name: category_id
+        tests:
+          - not_null
+      - name: quantity_per_unit
+        tests:
+          - not_null
+      - name: unit_price
+        tests:
+          - not_null
+      - name: units_in_stock
+        tests:
+          - not_null
+      - name: units_on_order
+        tests:
+          - not_null
+      - name: reorder_level
+        tests:
+          - not_null
+      - name: discontinued
+        tests:
+          - not_null
+        

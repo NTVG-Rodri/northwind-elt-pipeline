@@ -1,0 +1,19 @@
+version: 2
+
+sources:
+  - name: public
+    database: dwh
+    schema: public
+    tables:
+      - name: orders
+        description: 'Raw orders. One row per order'
+      - name: customers
+        description: 'Raw customers.'
+      - name: employees
+        description: 'Raw employees.'
+      - name: products
+        description: 'Raw products'
+      - name: order_details
+        description: 'Raw order details. One row per order line'
+      - name: categories
+        description: 'Raw categories.'

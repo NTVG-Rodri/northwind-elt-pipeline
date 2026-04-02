@@ -1,0 +1,165 @@
+version: 2
+
+models:
+  - name: avg_order_value
+    description: "Shows the average ticket per customer"
+    columns:
+      - name: customer_id
+        tests:
+          - not_null
+          - unique
+      - name: company_name
+        tests:
+          - not_null
+      - name: total_spent
+        tests:
+          - not_null
+      - name: minimum_ticket
+        tests: 
+          - not_null
+      - name: maximum_ticket
+        tests: 
+          - not_null
+      - name: avg_ticket
+        tests:
+          - not_null
+  
+  - name: customer_ranking
+    description: "Customer's ranking per revenue"
+    columns:
+      - name: customer_id
+        tests:
+          - not_null
+          - unique
+      - name: company_name
+        tests:
+          - not_null
+      - name: country
+        tests:
+          - not_null
+      - name: revenue
+        tests:
+          - not_null
+      - name: total_orders
+        tests:
+          - not_null
+      - name: ranking
+        tests:
+          - not_null
+          - unique
+
+  - name: customer_segmentation
+    description: "Classifies customers into revenue tiers using NTILE(3)"
+    columns:
+      - name: customer_id
+        tests:
+          - not_null
+          - unique
+      - name: total_spent
+        tests:
+          - not_null
+      - name: segment
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['HIGH', 'MEDIUM','LOW']
+
+  - name: employee_performance
+    description: "Employee's ranking per revenue"
+    columns:
+      - name: employee_id
+        tests:
+          - not_null
+          - unique
+      - name: full_name
+        tests:
+          - not_null
+      - name: revenue
+        tests:
+          - not_null
+      - name: total_orders
+        tests:
+          - not_null
+      - name: ranking
+        tests:
+          - not_null
+          - unique
+  
+  - name: repeat_customers
+    description: "Customers that they bought more than once"
+    columns:
+      - name: customer_id
+        tests:
+          - not_null
+          - unique
+      - name: company_name
+        tests:
+          - not_null
+      - name: total_orders
+        tests:
+          - not_null
+      - name: first_purchase
+        tests:
+          - not_null
+      - name: last_purchase
+        tests:
+          - not_null
+
+  - name: sales_by_category
+    description: "Revenue per product's category"
+    columns:
+      - name: category_id
+        tests:
+          - not_null
+          - unique
+      - name: category_name
+        tests:
+          - not_null
+      - name: revenue
+        tests:
+          - not_null
+
+  - name: sales_by_country
+    description: "Revenue per shipper's country"
+    columns:
+      - name: ship_country
+        tests:
+          - not_null
+          - unique
+      - name: total_orders
+        tests:
+          - not_null
+      - name: total_freight
+        tests:
+          - not_null
+
+  - name: sales_by_month
+    description: "Cumulative revenue per month"
+    columns:
+      - name: month
+        tests:
+          - not_null
+      - name: revenue
+        tests:
+          - not_null
+      - name: cumulative_revenue
+        tests:
+          - not_null
+
+  - name: top_products
+    description: "Top products ranked by revenue"
+    columns:
+      - name: product_id
+        tests:
+          - not_null
+          - unique
+      - name: product_name
+        tests:
+          - not_null
+      - name: revenue
+        tests:
+          - not_null
+      - name: ranking
+        tests:
+          - not_null
+          - unique
